@@ -18,7 +18,7 @@ print_message () {
 	printf "%s%s%s\n" "$padding" "$1" "$padding2"
 }
 
-print_message "Initializing system upgrade"
+print_message "Initializing system update"
 
 print_message "Updating local repository database"
 sudo apt-get update
