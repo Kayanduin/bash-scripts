@@ -1,0 +1,30 @@
+#! /usr/bin/bash
+
+print_message () {
+	columns=$(tput cols)
+	titleSize=${#1}
+	padingSize=$((($columns-$titleSize)/2))
+	delimiter="="
+	padding=""
+	for (( i = 0; i < $((($columns-$titleSize)/2)); i++ )); do
+		  padding="${padding}${delimiter}"
+	     done
+	if [ $((${#padding}+${#1}+${#padding})) -lt $columns ]
+	then
+		padding2="${padding}${delimiter}"
+	else
+		padding2="${padding}"
+	fi
+	printf "%s%s%s\n" "$padding" "$1" "$padding2"
+}
+
+print_message "Initializing system upgrade"
+
+print_message "Updating local repository database"
+sudo apt-get update
+
+print_message "Upgrading applications"
+sudo apt-get -y upgrade
+
+print_message "Removing old versions of applications"
+sudo apt-get autoremove
