@@ -27,4 +27,4 @@ print_message "Upgrading applications"
 sudo apt-get -y upgrade
 
 print_message "Removing old versions of applications"
-sudo apt-get autoremove
+sudo apt-get -y autoremove
