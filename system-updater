@@ -28,3 +28,6 @@ sudo apt-get -y upgrade
 
 print_message "Removing old versions of applications"
 sudo apt-get -y autoremove
+
+print_message "Updating snaps"
+sudo snap refresh
